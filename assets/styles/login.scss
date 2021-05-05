@@ -1,0 +1,124 @@
+.main-login {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+  position: relative;
+  background: linear-gradient(315deg, #3255cd30, #3255cd10);
+  backdrop-filter: blur(3px); 
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #ffffff50, #3255cd50);
+  color: #3255cd;
+  h2 {
+    text-align: center;
+  }
+}
+
+input {
+  width: 250px;
+  height: 40px;
+  margin: 5px 0px;
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #ffffff50, #3255cd50);
+}
+
+.champ {
+  position: relative;
+}
+
+.label {
+  font-family: "Quicksand";
+  font-size: 12px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  pointer-events: none;
+}
+
+// Propriété au focus
+
+input:focus {
+  border: 1px solid #3255cd;
+  outline: none;
+  ~ label{
+    top: -4px;
+    background-color: #3255cd;
+    color: white;
+    padding: 5px;
+    font-size: 7px;
+  }
+}
+
+input {
+  width: 250px;
+  height: 40px;
+  margin: 5px 0px;
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #ffffff50, #3255cd50);
+}
+
+.champ {
+  position: relative;
+}
+
+.label {
+  font-family: "Quicksand";
+  font-size: 12px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  pointer-events: none;
+}
+
+// Propriété au focus
+
+input:focus {
+  border: 1px solid #3255cd;
+  outline: none;
+  ~ label{
+    top: -4px;
+    background-color: #3255cd;
+    color: white;
+    padding: 5px;
+    font-size: 7px;
+  }
+}
+
+// Propriété des boutons 
+.button {
+  background-color: #3255cd;
+  margin: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  text-decoration: none;
+  color: white;
+  border: none;
+  font-size: 15px;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+// Réponsive pour les desktop
+@media (min-width: 768px) {
+  .login-signin {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .resp-form {
+    display: flex;
+    flex-direction: column;
+  }
+}

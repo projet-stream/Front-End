@@ -1,0 +1,486 @@
+.burger-menu {
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1;
+}
+
+.burger-menu a {
+  padding: 5px;
+  text-decoration: none;
+  color: #3255cd;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.burger-menu a:hover {
+  padding: 5px;
+  background: #3255cd;
+  color: white;
+}
+
+.burger-menu input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  /* On cache l'input */
+  z-index: 2;
+  /* on le met par dessus le bouton */
+}
+
+.burger-menu span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #3255cd;
+  z-index: 1;
+  -webkit-transform-origin: 4px 0px;
+          transform-origin: 4px 0px;
+  -webkit-transition: background 0.5s ease, opacity 0.55s ease, -webkit-transform 0.5s ease;
+  transition: background 0.5s ease, opacity 0.55s ease, -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease, background 0.5s ease, opacity 0.55s ease;
+  transition: transform 0.5s ease, background 0.5s ease, opacity 0.55s ease, -webkit-transform 0.5s ease;
+}
+
+/* Transformer la forme du bouton quand on clique dessus*/
+.burger-menu span:first-child {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+}
+
+.burger-menu span:nth-last-child(2) {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+}
+
+.burger-menu input:checked ~ span {
+  -webkit-transform: rotate(45deg) translate(-2px, -1px);
+          transform: rotate(45deg) translate(-2px, -1px);
+  background: #3255cd;
+}
+
+.burger-menu input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+          transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.burger-menu input:checked ~ span:nth-last-child(2) {
+  -webkit-transform: rotate(-45deg) translate(0, -1px);
+          transform: rotate(-45deg) translate(0, -1px);
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 94vh;
+  margin-left: -15px;
+  margin: auto;
+  padding: 50px;
+  padding-top: 125px;
+  background: white;
+  list-style-type: none;
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translateX(-110%);
+          transform: translateX(-110%);
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+}
+
+.menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/* Faire apparaitre le menu */
+.burger-menu input:checked ~ ul {
+  -webkit-transform: none;
+          transform: none;
+}
+
+.video-chat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chat {
+  width: 100%;
+}
+
+.chat h2 {
+  margin: 0;
+  padding: 20px 0px 20px 15px;
+  background: linear-gradient(315deg, #3255cd30, #3255cd10);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #ffffff50, #3255cd50);
+  color: #3255cd;
+}
+
+.form-chat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.input-chat {
+  width: 80%;
+}
+
+.button-chat {
+  background-color: #3255cd;
+  margin: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  text-decoration: none;
+  color: white;
+  border: 1px solid #3255cd;
+  font-size: 15px;
+  padding: 10px;
+  width: 20%;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .video-chat {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .video {
+    width: 80%;
+  }
+  .chat {
+    width: 20%;
+  }
+}
+
+h2 {
+  text-align: center;
+  color: #3255cd;
+}
+
+.stream-online {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+h3 {
+  text-align: center;
+  margin: 0;
+  padding: 20px 0px 20px 15px;
+  background: linear-gradient(315deg, #3255cd30, #3255cd10);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #ffffff50, #3255cd50);
+}
+
+h3 a {
+  text-decoration: none;
+  color: #3255cd;
+}
+
+@media (min-width: 768px) {
+  .article-video {
+    margin: 5px;
+  }
+}
+
+.main-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-signin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  height: 80%;
+  position: relative;
+  background: linear-gradient(315deg, #3255cd30, #3255cd10);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #ffffff50, #3255cd50);
+  color: #3255cd;
+}
+
+.login-signin h2 {
+  text-align: center;
+}
+
+input {
+  width: 250px;
+  height: 40px;
+  margin: 5px 0px;
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #ffffff50, #3255cd50);
+}
+
+.champ {
+  position: relative;
+}
+
+.label {
+  font-family: "Quicksand";
+  font-size: 12px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  pointer-events: none;
+}
+
+input:focus {
+  border: 1px solid #3255cd;
+  outline: none;
+}
+
+input:focus ~ label {
+  top: -4px;
+  background-color: #3255cd;
+  color: white;
+  padding: 5px;
+  font-size: 7px;
+}
+
+input {
+  width: 250px;
+  height: 40px;
+  margin: 5px 0px;
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #ffffff50, #3255cd50);
+}
+
+.champ {
+  position: relative;
+}
+
+.label {
+  font-family: "Quicksand";
+  font-size: 12px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  pointer-events: none;
+}
+
+input:focus {
+  border: 1px solid #3255cd;
+  outline: none;
+}
+
+input:focus ~ label {
+  top: -4px;
+  background-color: #3255cd;
+  color: white;
+  padding: 5px;
+  font-size: 7px;
+}
+
+.button {
+  background-color: #3255cd;
+  margin: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  text-decoration: none;
+  color: white;
+  border: none;
+  font-size: 15px;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .login-signin {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .resp-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.main-profil {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profil {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  height: 80%;
+  position: relative;
+  background: linear-gradient(315deg, #3255cd30, #3255cd10);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #ffffff50, #3255cd50);
+  color: #3255cd;
+}
+
+.profil h2 {
+  text-align: center;
+}
+
+.pseudo-key h3 {
+  text-align: center;
+}
+
+.pseudo-key p {
+  text-align: center;
+}
+
+html {
+  background: white;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: white;
+  height: 55px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+}
+
+h1 {
+  margin-top: 15px;
+  text-align: center;
+  color: #3255cd;
+}
+
+video {
+  width: 100%;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #3255cd;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,51 @@
+.main-profil {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profil {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  height: 80%;
+  position: relative;
+  background: linear-gradient(315deg, #3255cd30, #3255cd10);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #ffffff50, #3255cd50);
+  color: #3255cd;
+}
+
+.profil h2 {
+  text-align: center;
+}
+
+.pseudo-key h3 {
+  text-align: center;
+}
+
+.pseudo-key p {
+  text-align: center;
+}
+/*# sourceMappingURL=profil.css.map */

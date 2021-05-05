@@ -1,0 +1,55 @@
+.video-chat {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat {
+  width: 100%;
+  h2 {
+  margin: 0;
+  padding: 20px 0px 20px 15px;
+  background: linear-gradient(315deg, #3255cd30, #3255cd10);
+  backdrop-filter: blur(3px); 
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #ffffff50, #3255cd50);
+  color: #3255cd;
+  }
+}
+
+.form-chat {
+  display: flex;
+  align-items: center;
+}
+
+.input-chat {
+  width: 80%;
+}
+
+.button-chat {
+  background-color: #3255cd;
+  margin: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  text-decoration: none;
+  color: white;
+  border: 1px solid #3255cd;
+  font-size: 15px;
+  padding: 10px;
+  width: 20%;
+  cursor: pointer;
+}
+
+// Réponsive pour les desktop
+@media (min-width: 768px) {
+  .video-chat {
+    flex-direction: row;
+  }
+  .video {
+    width: 80%;
+  }
+  
+  .chat {
+    width: 20%;
+  }
+}

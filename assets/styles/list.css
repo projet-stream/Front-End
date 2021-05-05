@@ -1,0 +1,39 @@
+h2 {
+  text-align: center;
+  color: #3255cd;
+}
+
+.stream-online {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+h3 {
+  text-align: center;
+  margin: 0;
+  padding: 20px 0px 20px 15px;
+  background: linear-gradient(315deg, #3255cd30, #3255cd10);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(135deg, #ffffff50, #3255cd50);
+}
+
+h3 a {
+  text-decoration: none;
+  color: #3255cd;
+}
+
+@media (min-width: 768px) {
+  .article-video {
+    margin: 5px;
+  }
+}
+/*# sourceMappingURL=list.css.map */

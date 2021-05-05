@@ -1,0 +1,47 @@
+@import "burger";
+@import "channel";
+@import "homepage";
+@import "list";
+@import "login";
+@import "profil";
+
+html {
+  background: rgb(255, 255, 255);
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  background: white;
+  height: 55px;
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+}
+
+h1 {
+  margin-top: 15px;
+  text-align: center;
+  color: #3255cd;
+} 
+
+video {
+  width: 100%;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #3255cd;
+}

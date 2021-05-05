@@ -1,0 +1,124 @@
+.burger-menu {
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1;
+}
+
+.burger-menu a {
+  padding: 5px;
+  text-decoration: none;
+  color: #3255cd;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.burger-menu a:hover {
+  padding: 5px;
+  background: #3255cd;
+  color: white;
+}
+
+.burger-menu input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  /* On cache l'input */
+  z-index: 2;
+  /* on le met par dessus le bouton */
+}
+
+.burger-menu span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #3255cd;
+  z-index: 1;
+  -webkit-transform-origin: 4px 0px;
+          transform-origin: 4px 0px;
+  -webkit-transition: background 0.5s ease, opacity 0.55s ease, -webkit-transform 0.5s ease;
+  transition: background 0.5s ease, opacity 0.55s ease, -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease, background 0.5s ease, opacity 0.55s ease;
+  transition: transform 0.5s ease, background 0.5s ease, opacity 0.55s ease, -webkit-transform 0.5s ease;
+}
+
+/* Transformer la forme du bouton quand on clique dessus*/
+.burger-menu span:first-child {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+}
+
+.burger-menu span:nth-last-child(2) {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+}
+
+.burger-menu input:checked ~ span {
+  -webkit-transform: rotate(45deg) translate(-2px, -1px);
+          transform: rotate(45deg) translate(-2px, -1px);
+  background: #3255cd;
+}
+
+.burger-menu input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+          transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.burger-menu input:checked ~ span:nth-last-child(2) {
+  -webkit-transform: rotate(-45deg) translate(0, -1px);
+          transform: rotate(-45deg) translate(0, -1px);
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 94vh;
+  margin-left: -15px;
+  margin: auto;
+  padding: 50px;
+  padding-top: 125px;
+  background: white;
+  list-style-type: none;
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translateX(-110%);
+          transform: translateX(-110%);
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+}
+
+.menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/* Faire apparaitre le menu */
+.burger-menu input:checked ~ ul {
+  -webkit-transform: none;
+          transform: none;
+}
+/*# sourceMappingURL=burger.css.map */
