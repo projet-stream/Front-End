@@ -31,7 +31,8 @@
     <section class="login-signin">
       <div class="resp-form">
         <h2>Connexion</h2>
-        <form id="login">
+        <form method="GET" id="login">
+        <h1 id="test"></h1>
         <div class="champ">
           <input type="text" name="user_pseudo_login" required>
           <label class="label">Pseudo *</label>
@@ -45,7 +46,7 @@
       </div>
       <div class="resp-form">
         <h2>Inscription</h2>
-        <form id="register">
+        <form method="POST" id="register">
           <div class="champ">
             <input type="text" name="user_pseudo_register" required>
             <label class="label">Pseudo *</label>
@@ -81,8 +82,41 @@
       alert('Inscription Réussie !');
     });
   })
-</script>
 
+  // Connexion
+  let test = document.getElementById("test");
+  const apiin = "http://localhost:3000/users/auth";
+  const formIn = document.getElementById("login");
+  formIn.addEventListener('submit', (e) =>{
+    e.preventDefault();
+    console.log(document.getElementsByName("user_pseudo_login")[0].value);
+    fetch(apiin, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: document.getElementsByName("user_pseudo_login")[0].value,
+        password: document.getElementsByName("user_password_login")[0].value
+      })
+    }).then(res => res.json()).then(res => {
+      console.log(res.toker);
+      fetch (
+        api+'/'+res.toker, {
+          method: 'GET',
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      ).then(res => res.json()).then(res => { 
+        test.textContent="test " + res.username;
+        localStorage.setItem('username', res.username);
+        localStorage.setItem('id', res._id);
+        console.log(localStorage);
+      })
+    });
+  })
+</script>
 
 <footer>
   <p>©Copyright 2021</p>

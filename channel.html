@@ -29,8 +29,7 @@
   </header>
   <div class="video-chat">
     <section class="video">
-        <video controls autoplay muted>
-          <source src="../Front-End/assets/media/pierpoljak.mp4" type="video/mp4">
+        <video id="video" controls>
         </video>
     </section>
 
@@ -43,6 +42,18 @@
       </form>
     </section>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    var video = document.getElementById("video");
+    var videoSrc = "/hls/test.m3u8";
+    if (Hls.isSupported()) {
+      var hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = videoSrc;
+    }
+  </script>
 </body>
 
 <footer>
