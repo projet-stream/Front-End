@@ -161,6 +161,27 @@
   width: 80%;
 }
 
+.enter-name {
+  margin-bottom: 1rem;
+}
+
+.chat-window {
+  min-height: 40vh;
+  max-height: 80vh;
+  border: 1px solid #cccccc;
+  margin-bottom: 10px;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.msg {
+  margin-bottom: 1rem;
+}
+
+.member-name, .new-member {
+  font-weight: bolder;
+}
+
 .button-chat {
   background-color: #3255cd;
   margin: 10px;

@@ -32,16 +32,32 @@
         <video id="video" controls>
         </video>
     </section>
-
     <section class="chat">
-      <h2>Chat du stream</h2>
-      <div class="node-chat"></div>
-      <form class="form-chat" action="" method="POST">
-        <input class="input-chat" type="text" placeholder="Envoyer un message">
-        <button class="button-chat" type="submit" value="Envoi d'un message'" name="chat">Chat</button>
-      </form>
+      <div class="container">
+        <div class="row">
+          <div class=" text-center">
+            <h2>Chat du stream</h2>
+            <div class="input-group enter-name">
+              <input type="text" id="name-input" class="form-control" placeholder="Ton pseudo">
+              <span class="button-chat input-group-addon submit-name">Entrer</span>
+            </div>
+          </div>
+          <div>
+            <div class="chat-window">
+              <div id="messages"></div>
+            </div>
+          </div>
+          <div>
+            <div class="input-group enter-chat-message">
+              <input type="text" id="chat-input" class="form-control" placeholder="Ton message...">
+              <span class="button-chat input-group-addon submit-chat-message">Envoyer</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
+  
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script>
     var video = document.getElementById("video");
@@ -54,6 +70,76 @@
       video.src = videoSrc;
     }
   </script>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"  crossorigin="anonymous"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest%22%3E"></script>
+  <script src="assets/javascript/chat.js"></script>
+  <script>
+    $(function () {
+    let socket = io();
+    let name = '';
+    let nameInput = $('#name-input');
+    let chatInput = $('#chat-input');
+  
+    // pseudo
+    nameInput.keydown(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+  
+            // pas vide
+            if (nameInput.val() !== '') {
+                name = nameInput.val();
+                nameInput.val('');
+                $('.enter-name').hide();
+                socket.emit('new:member', name);
+            }
+        }
+    });
+  
+    // Choix du pseudo quand tu fais entrer
+    $('.submit-name').on('click', function(event) {
+        event.preventDefault();
+  
+        // pseudo pas vide
+        if (nameInput.val() !== '') {
+            name = nameInput.val();
+            nameInput.val('');
+            $('.enter-name').hide();
+            socket.emit('new:member', name);
+        }
+    });
+  
+  
+    // Si pseudo on peux écrire dans le tchat
+    chatInput.keydown(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            if (chatInput.val() !== '' && name !== '') {
+                socket.emit('new:message', {name: name, msg: chatInput.val()});
+                chatInput.val('');
+            }
+        }
+    });
+  
+    //Envoi du message
+    $('.submit-chat-message').on('click', function(event) {
+        event.preventDefault();
+  
+        // message pas vide
+        if (chatInput.val() !== '' && name !== '') {
+            socket.emit('new:message', {name: name, msg: chatInput.val()});
+            chatInput.val('');
+        }
+    });
+  
+    // Les nouveaux messages
+    socket.on('new:message', function(msgObject){
+        $('#messages').append($('<div class="msg new-chat-message">').html('<span class="member-name">' + msgObject.name + '</span>: ' + msgObject.msg));
+        $('.chat-window').scrollTop($('#messages').height());
+    });
+  
+  });</script>
 </body>
 
 <footer>
